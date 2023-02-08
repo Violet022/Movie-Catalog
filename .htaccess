@@ -1,0 +1,15 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+
+RewriteCond %{REQUEST_URI} ^\/$ [OR]
+RewriteCond %{REQUEST_URI} ^\/([0-9]+)$
+RewriteRule ^(.*)$ movies.html
+
+RewriteCond %{REQUEST_URI} ^\/id.+$
+RewriteRule ^(.*)$ details.html
+
+# RewriteCond %{REQUEST_URI} ^\/movie\/.+$
+# RewriteRule ^(.*)$ details.html
